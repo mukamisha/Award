@@ -70,11 +70,11 @@ def rate(request,image_id):
        rate = Image.objects.filter(id=image_id).first()
        average_score = round(((rate.design + rate.usability + rate.content)/3),2)
        if request.method == 'POST':
-           vote_form = VoteForm(request.POST)
-           if vote_form.is_valid():
-               project.vote_submissions+=1
-               if project.design == 0:
-                   project.design = int(request.POST['design'])
+           rate_form = RateForm(request.POST)
+           if rate_form.is_valid():
+               rate.vote_submissions+=1
+               if rate.design == 0:
+                   rate.design = int(request.POST['design'])
                else:
                    project.design = (project.design + int(request.POST['design']))/2
                if project.usability == 0:
