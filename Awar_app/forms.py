@@ -5,7 +5,7 @@ from .models import Image,Profile,Comment
 class NewPostForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['profile',]
+        exclude = ['profile','comments']
 
 class ProfileForm(forms.ModelForm):
    class Meta:
