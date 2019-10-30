@@ -76,21 +76,21 @@ def rate(request,image_id):
                if rate.design == 0:
                    rate.design = int(request.POST['design'])
                else:
-                   project.design = (project.design + int(request.POST['design']))/2
-               if project.usability == 0:
-                   project.usability = int(request.POST['usability'])
+                   rate.design = (rate.design + int(request.POST['design']))/2
+               if rate.usability == 0:
+                   rate.usability = int(request.POST['usability'])
                else:
-                   project.usability = (project.usability + int(request.POST['usability']))/2
-               if project.content == 0:
-                   project.content = int(request.POST['content'])
+                   rate.usability = (rate.usability + int(request.POST['usability']))/2
+               if rate.content == 0:
+                   rate.content = int(request.POST['content'])
                else:
-                   project.content = (project.content + int(request.POST['usability']))/2
-               project.save()
-               return redirect('project', project_id)
+                   rate.content = (rate.content + int(request.POST['usability']))/2
+               rate.save()
+               return redirect('image', image_id)
        else:
-           vote_form = VoteForm()
+           rate_form = RateForm()
 
-           return render(request,'project.html',{"vote_form":vote_form,"project":project,"average_score":average_score})
+           return render(request,'project.html',{"rate_form":rate_form,"rate":rate,"average_score":average_score})
 
 
 
