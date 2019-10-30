@@ -18,7 +18,7 @@ class CommentForm(forms.ModelForm):
        model=Comment
        exclude=['comment_pic','posted_by']
 
-class VoteForm(forms.ModelForm):
+class RateForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ['design','usability','content']
