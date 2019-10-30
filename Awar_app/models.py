@@ -24,7 +24,6 @@ class Image(models.Model):
     img_name = models.CharField(max_length =30)
     img_caption = models.TextField()
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    # likes = models.IntegerField(default=0)
     comments= models.TextField()
 
     def __str__(self):
