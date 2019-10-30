@@ -31,13 +31,15 @@
               <p>{{x.img_caption}}</p>
               </div>
              
-            
+              <a href="{{x.link}}"> Visit This Site</a>
+              <br>
               <a href="{% url 'comment' x.id %}"class="fa fa-comment"></a>
           
               {% for coment in x.comment_set.all %}
               <p>{{coment.comment}}</p>
               {% empty %}
               {% endfor %}
+              
            
         </div>
          <hr>
