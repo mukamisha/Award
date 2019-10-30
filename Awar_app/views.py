@@ -64,6 +64,34 @@ def comment(request,image_id):
        form=CommentForm()
    return render(request,'comment.html',{"form":form,"image_id":image_id})
 
+@login_required(login_url='/accounts/login/')
+def rate(request,image_id):
+  
+       rate = Image.objects.filter(id=image_id).first()
+       average_score = round(((rate.design + rate.usability + rate.content)/3),2)
+       if request.method == 'POST':
+           vote_form = VoteForm(request.POST)
+           if vote_form.is_valid():
+               project.vote_submissions+=1
+               if project.design == 0:
+                   project.design = int(request.POST['design'])
+               else:
+                   project.design = (project.design + int(request.POST['design']))/2
+               if project.usability == 0:
+                   project.usability = int(request.POST['usability'])
+               else:
+                   project.usability = (project.usability + int(request.POST['usability']))/2
+               if project.content == 0:
+                   project.content = int(request.POST['content'])
+               else:
+                   project.content = (project.content + int(request.POST['usability']))/2
+               project.save()
+               return redirect('project', project_id)
+       else:
+           vote_form = VoteForm()
+
+           return render(request,'project.html',{"vote_form":vote_form,"project":project,"average_score":average_score})
+
 
 
 
