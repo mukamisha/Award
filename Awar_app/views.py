@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from . models import Image
 from django.contrib.auth.decorators import login_required
-from .forms import NewPostForm,ProfileForm,CommentForm
+from .forms import NewPostForm,ProfileForm,CommentForm,RateForm
 # Create your views here.
 
 
@@ -63,6 +63,7 @@ def comment(request,image_id):
    else:
        form=CommentForm()
    return render(request,'comment.html',{"form":form,"image_id":image_id})
+
 
 
 
