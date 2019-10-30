@@ -17,3 +17,8 @@ class CommentForm(forms.ModelForm):
    class Meta:
        model=Comment
        exclude=['comment_pic','posted_by']
+
+class VoteForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['design','usability','content']
