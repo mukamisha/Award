@@ -3,6 +3,12 @@ from django.http  import HttpResponse
 from . models import Image
 from django.contrib.auth.decorators import login_required
 from .forms import NewPostForm,ProfileForm,CommentForm,RateForm
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import  Image
+from .serializer import Serializer
+
 # Create your views here.
 
 
@@ -106,6 +112,14 @@ def search_picture(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+
+class MerchSerializer(APIView):
+    def get(self, request, format=None):
+        all_merch = MoringaMerch.objects.all()
+        serializers = MerchSerializer(all_merch, many=True)
+        return Response(serializers.data)
+
 
 
 
