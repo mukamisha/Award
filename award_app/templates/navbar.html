@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+      background-color: rgb(138, 132, 132);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #20c011;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: black;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar" class="row"style="width:100%;height:50%">
+    <div class="col-md-2">
+    <a href="{%url 'image'%}">HomePage</a>
+    </div>
+  <div class="col-md-2">
+    <a href="{%url 'profile' %}">Profile</a>
+  </div>
+  <div class="col-md-2">
+    <a href="{%url 'new_post'%}">Upload your Project</a>
+  </div>
+  <div class="col-md-2">
+    <a href="/logout">Logout</a>
+  </div>
+  <div class="col-md-2">
+    <a href="/accounts/password/change">Change Password</a>
+  </div>
+
+
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for a Project" name="title">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+  </div>
+
+  <div>
+    <form class="navbar-form" role="search" action="{% url 'search_picture' %}">
+
+    </form>
+  </div>
+  </div> 
+
+
+
+<!-- </body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<h2>Animated Sidenav Example</h2>
+<p>Click on the element below to open the side navigation menu.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+   
+</body>
+</html>  -->

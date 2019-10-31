@@ -1,0 +1,70 @@
+{%extends 'base.html'%}
+{{block.super}}
+{% block content %}
+
+
+<style>
+  .img_profilepic{
+        vertical-align: middle;
+        width: 90px;
+        height: 90px;
+        border-radius:50%;
+      }
+  .two{
+    
+    width:100%;
+    height: 50%;
+    background-size: cover
+  } 
+  .one{
+    width:100%;
+  } 
+  .three{
+    width:100%;
+  }  
+ 
+ </style>
+
+
+<div class="one">
+<div class="two" style="background-image: url(https://www.bandt.com.au/information/uploads/2018/10/iStock-939840782-1-1260x840.jpg);">
+  
+</div>
+
+  <div class="three">
+
+      {% for x in images %}
+   
+        <div data-toggle="modal" data-target="#{{x.id}}" style="width:69%;margin-left:30%" >
+          <!--Display   images  -->
+          <img class="img-responsive"style="width:50%;padding-top:5%" src="{{x.image.url}}" alt="">
+        </div>
+       
+          <div  style="margin-left:30%;margin-top:2%">
+              <div>
+                <p>Title:{{x.title}}</p> 
+              <p>{{x.description}}</p>
+              </div>
+             
+              <a href="{{x.link}}"> Visit This Site</a>
+              <br>
+              <a href="{% url 'rate' x.id %}"> vote</a>
+              <br>
+              <a href="{% url 'comment' x.id %}"class="fa fa-comment"></a>
+          
+              {% for coment in x.comment_set.all %}
+              <p>{{coment.comment}}</p>
+              {% empty %}
+              {% endfor %}
+              
+           
+        </div>
+         <hr>
+        {%endfor%}
+      </div>
+      
+</div>
+
+
+{% endblock %}
+        
