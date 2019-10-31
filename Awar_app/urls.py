@@ -10,6 +10,7 @@ urlpatterns=[
     url(r'^edit/profile', views.profile_edit, name='profile_edit'),
     url(r'^comment/(\d+)', views.comment, name='comment'),
     url(r'rate/(\d+)', views.rate, name='rate'),
+    url(r'^search/', views.search_picture, name='search_picture'),
     
 
 ]

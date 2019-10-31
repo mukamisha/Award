@@ -48,6 +48,11 @@ class Image(models.Model):
     def total_likes(self):
        self.likes.count()
 
+    @classmethod
+    def search_by_title(cls,search_term):
+        pic = cls.objects.filter(category__name__icontains=search_term)
+        return pic
+
 class Comment(models.Model):
    posted_by=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
    comment_pic=models.ForeignKey(Image,on_delete=models.CASCADE,null=True)
