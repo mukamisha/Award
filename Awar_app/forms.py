@@ -20,5 +20,5 @@ class CommentForm(forms.ModelForm):
 
 class RateForm(forms.ModelForm):
     class Meta:
-        model = Project
+        model = Image
         fields = ['design','usability','content']

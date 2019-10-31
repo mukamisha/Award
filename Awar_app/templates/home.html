@@ -33,6 +33,8 @@
              
               <a href="{{x.link}}"> Visit This Site</a>
               <br>
+              <a href="{% url 'rate' x.id %}"> vote</a>
+              <br>
               <a href="{% url 'comment' x.id %}"class="fa fa-comment"></a>
           
               {% for coment in x.comment_set.all %}
