@@ -116,8 +116,8 @@ def search_picture(request):
 
 class MerchSerializer(APIView):
     def get(self, request, format=None):
-        all_merch = MoringaMerch.objects.all()
-        serializers = MerchSerializer(all_merch, many=True)
+        all_merch = Image.objects.all()
+        serializers = Serializer(all_merch, many=True)
         return Response(serializers.data)
 
 
