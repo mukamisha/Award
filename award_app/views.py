@@ -72,7 +72,7 @@ def comment(request,image_id):
 
 @login_required(login_url='/accounts/login/')
 def rate(request,image_id):
-  
+
        rate = Image.objects.filter(id=image_id).first()
        average_score = round(((rate.design + rate.usability + rate.content)/3),2)
        if request.method == 'POST':
