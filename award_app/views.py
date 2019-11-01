@@ -6,8 +6,8 @@ from .forms import NewPostForm,ProfileForm,CommentForm,RateForm
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import  Image
-from .serializer import Serializer
+from .models import  Image,Profile
+from .Serializer import ImageSerializer,ProfileSerializer
 
 # Create your views here.
 
@@ -117,9 +117,14 @@ def search_picture(request):
 class MerchSerializer(APIView):
     def get(self, request, format=None):
         all_merch = Image.objects.all()
-        serializers = Serializer(all_merch, many=True)
+        serializers = ImageSerializer(all_merch, many=True)
         return Response(serializers.data)
 
+class ProSerializer(APIView):
+    def get(self, request, format=None):
+        merch = Profile.objects.all()
+        merch_serializers = ProfileSerializer(merch, many=True)
+        return Response(merch_serializers.data)
 
 
 

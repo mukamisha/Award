@@ -11,7 +11,10 @@ urlpatterns=[
     url(r'^comment/(\d+)', views.comment, name='comment'),
     url(r'rate/(\d+)', views.rate, name='rate'),
     url(r'^search/', views.search_picture, name='search_picture'),
-    url(r'^api/merch/$', views.MerchSerializer_view())
+    url(r'^api/merch/$', views.MerchSerializer.as_view(),name="jacky"),
+    url(r'^api/pro/$', views.ProSerializer.as_view(),name="mukamisha"),
+    
+    
     
 
 ]
